@@ -1,0 +1,34 @@
+package fr.fireflown.chessgame.model.pieces;
+
+import java.util.LinkedList;
+
+import fr.fireflown.chessgame.controller.IPlayer;
+import fr.fireflown.chessgame.model.game.WorldInformation;
+
+
+public class King extends BasePiece {
+
+	public King(int x, int y, int z, WorldInformation worldInfo, IPlayer owner) {
+		super(x, y, z, worldInfo, owner);
+		// TODO Auto-generated constructor stub
+		name = "King";
+	}
+
+	@Override
+	public LinkedList<Move> getAllPossibleMove() {
+		// TODO Auto-generated method stub
+		LinkedList<Move> moves = new LinkedList<Move>();
+		
+		moves.add(new Move(1, 0, 1, true, MoveType.MOVE_AND_ATTACK));
+		moves.add(new Move(1, 0, -1, true, MoveType.MOVE_AND_ATTACK));
+		moves.add(new Move(-1, 0, -1, true, MoveType.MOVE_AND_ATTACK));
+		moves.add(new Move(-1, 0, 1, true, MoveType.MOVE_AND_ATTACK));
+		
+		moves.add(new Move(1, 0, 0, true, MoveType.MOVE_AND_ATTACK));
+		moves.add(new Move(-1, 0, 0, true, MoveType.MOVE_AND_ATTACK));
+		moves.add(new Move(0, 0, 1, true, MoveType.MOVE_AND_ATTACK));
+		moves.add(new Move(0, 0, -1, true, MoveType.MOVE_AND_ATTACK));
+		
+		return moves;
+	}
+}
